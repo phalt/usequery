@@ -1,0 +1,28 @@
+{
+  "name": "restquery",
+  "version": "1.0.0",
+  "description": "A React hook for making REST API calls",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phalt/usequery.git"
+  },
+  "keywords": [
+    "rest"
+  ],
+  "author": "Paul Hallett",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/phalt/usequery/issues"
+  },
+  "homepage": "https://github.com/phalt/usequery#readme",
+  "devDependencies": {
+    "jest": "^25.1.0"
+  },
+  "dependencies": {
+    "react": "16.12.0"
+  }
+}
