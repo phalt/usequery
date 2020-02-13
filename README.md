@@ -29,10 +29,15 @@ export const myComponent = () => {
         <Fragment>
             <H2>My query</h2>
             { loading && <h2>Loading!</h2> }
-            {error && <h2>Something went wrong!</h2>}
+            { error && <h2>Something went wrong!</h2> }
             { data && <h3>{data}</h3> }
         </Fragment>
     );
 };
 
 ```
+
+# TODO
+
+Write some tests yeah
+Get POST stuff working
