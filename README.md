@@ -17,10 +17,10 @@ Argument `deserialize` is a callback that takes [Response](https://developer.moz
 
 ```js
 import React, { Fragment } from "react";
-import { useQuery } from 'usequery';
+import { useQuery } from '@phalt/usequery';
 
 export const myComponent = () => {
-    const [{ data, loading, error }, { refetch }] = useQuery({
+    const [{ data, loading, error }, { refetch, reset }] = useQuery({
         url: "https://pokeapi.co/api",
         { headers: { accept: "application/json" }}
     });
@@ -28,6 +28,8 @@ export const myComponent = () => {
     return (
         <Fragment>
             <H2>My query</h2>
+            <Button onClick={refetch}>Refresh</Button>
+            <Button onClick={reset}>Reset state</Button>
             { loading && <h2>Loading!</h2> }
             { error && <h2>Something went wrong!</h2> }
             { data && <h3>{data}</h3> }
@@ -37,7 +39,24 @@ export const myComponent = () => {
 
 ```
 
-# TODO
+## Making POST requests
 
-Write some tests yeah
-Get POST stuff working
+You can use the `useQuery` hook to do this if you want full control.
+
+```js
+import { useQuery } from '@phalt/usequery';
+
+const httpOptions = {
+    headers: { "Content-Type": "application/json" },
+    method: "POST",
+    body: JSON.stringify(myData)
+};
+
+const [{ data, loading, error }, { refetch, reset }] = useQuery({
+        url: "https://example.com/resource",
+        httOptions
+    });
+
+```
+
+See full example of in the "uploadin JSON data" example [here](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch).
