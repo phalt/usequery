@@ -1,10 +1,10 @@
-# usequery
+# useQuery
 
-A simple React hook for making REST API calls.
+A simple React hook and component for handling REST API calls.
 
-Provides loading state, response data, and errors.
+Provides loading state, success state, and error states.
 
-## usequery(url, options, deserialize)
+## useQuery(url, options, deserialize)
 
 Requires a `url` parameter.
 
@@ -12,8 +12,7 @@ If `options` not supplied, defaults to an empty object. Put your `fetchOptions` 
 
 Argument `deserialize` is a callback that takes [Response](https://developer.mozilla.org/en-US/docs/Web/API/Response) from the fetch result. Default is `res => res.json()`.
 
-
-## Usage
+### Usage
 
 ```js
 import React, { Fragment } from "react";
@@ -39,7 +38,7 @@ export const myComponent = () => {
 
 ```
 
-## Making POST requests
+## POST requests
 
 You can use the `useQuery` hook to do this if you want full control.
 
@@ -57,6 +56,23 @@ const [{ data, loading, error }, { refetch, reset }] = useQuery({
         httOptions
     });
 
+```
+
+## APIQuery component
+
+For convenience we ship an APIQuery component:
+
+```js
+import { APIQuery } from "@phalt/usequery';
+
+const myComponent = () => {
+return (<APIQuery
+    ErrorState={props => <p>{props.error}</p>}
+    LoadingState={() => <p>Loading...</p>}
+    SuccessState={props => <p>{props.data}</p>}
+    path="https://myapi.com/api/v1/foo"
+/>)
+}
 ```
 
 See full example of in the "uploadin JSON data" example [here](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch).
