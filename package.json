@@ -1,6 +1,6 @@
 {
   "name": "@phalt/usequery",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A React hook for making REST API calls",
   "main": "index.js",
   "scripts": {

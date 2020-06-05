@@ -63,7 +63,7 @@ const [{ data, loading, error }, { refetch, reset }] = useQuery({
 For convenience we ship an APIQuery component:
 
 ```js
-import { APIQuery } from "@phalt/usequery';
+import { APIQuery } from "@phalt/usequery";
 
 const myComponent = () => {
 return (<APIQuery
